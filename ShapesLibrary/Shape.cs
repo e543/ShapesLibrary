@@ -14,8 +14,8 @@ namespace ShapesLibrary
 
     public class Rectangle : Shape
     {
-        private int width;
-        private int height;
+        private readonly int width;
+        private readonly int height;
 
         public Rectangle(int width, int height)
         {
@@ -44,7 +44,8 @@ namespace ShapesLibrary
 
     public class Ellipse : Shape
     {
-        private int xrad , yrad;
+        private readonly int xrad;
+        private readonly int yrad;
 
         public Ellipse(int xrad, int yrad)
         {

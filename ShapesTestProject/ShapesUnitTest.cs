@@ -3,9 +3,8 @@ using ShapesLibrary;
 namespace ShapesTestProject
 {
     [TestClass]
-    public class ShapesUnitTest
+    public class RectangleTest
     {
-
         [TestMethod]
         public void TestNegativeValues()
         {
@@ -14,15 +13,6 @@ namespace ShapesTestProject
 
             var square = new Square(-3);
             Assert.IsTrue(square.GetArea().Equals(0));
-
-            var ellipse = new Ellipse(-4, -5);
-            Assert.IsTrue(ellipse.GetArea().Equals(0));
-
-            var circle = new Circle(-6);
-            Assert.IsTrue(circle.GetArea().Equals(0));
-
-            var triangle = new Triangle(-7,-8,-9);
-            Assert.IsTrue(triangle.GetArea().Equals(0));
         }
 
         [TestMethod]
@@ -32,7 +22,7 @@ namespace ShapesTestProject
             int height = 5;
             double expected = 60;
 
-            var rectangle = new Rectangle(width,height);
+            var rectangle = new Rectangle(width, height);
             double actual = rectangle.GetArea();
 
             Assert.AreEqual(expected, actual);
@@ -49,18 +39,19 @@ namespace ShapesTestProject
 
             Assert.AreEqual(expected, actual);
         }
+    }
 
+    [TestClass]
+    public class EllipseTest
+    {
         [TestMethod]
-        public void TestAreaEllipse()
+        public void TestNegativeValues()
         {
-            int width = 2;
-            int height = 5;
-            double expected = 31.41592653589793;
+            var ellipse = new Ellipse(-4, -5);
+            Assert.IsTrue(ellipse.GetArea().Equals(0));
 
-            var ellipse = new Ellipse(width, height);
-            double actual = ellipse.GetArea();
-
-            Assert.AreEqual(expected, actual);
+            var circle = new Circle(-6);
+            Assert.IsTrue(circle.GetArea().Equals(0));
         }
 
         [TestMethod]
@@ -83,7 +74,32 @@ namespace ShapesTestProject
             int c = 8;
             double expected = 14.523687548277813;
 
-            var triangle= new Triangle(a, b, c);
+            var triangle = new Triangle(a, b, c);
+            double actual = triangle.GetArea();
+
+            Assert.AreEqual(expected, actual);
+        }
+    }
+
+    [TestClass]
+    public class TriangleTest
+    {
+        [TestMethod]
+        public void TestNegativeValues()
+        {
+            var triangle = new Triangle(-7, -8, -9);
+            Assert.IsTrue(triangle.GetArea().Equals(0));
+        }
+
+        [TestMethod]
+        public void TestAreaTriangle()
+        {
+            int a = 12;
+            int b = 5;
+            int c = 8;
+            double expected = 14.523687548277813;
+
+            var triangle = new Triangle(a, b, c);
             double actual = triangle.GetArea();
 
             Assert.AreEqual(expected, actual);
